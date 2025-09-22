@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import joblib
 import numpy as np
 import re
@@ -6,6 +7,7 @@ import tldextract
 from scipy.sparse import hstack
 
 app = Flask(__name__)
+CORS(app, origins=["http://localhost:3000", "http://localhost:5173"])  # Enable CORS for specific origins
 
 # -----------------------
 # Custom tokenizer (must match training)
